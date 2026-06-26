@@ -18,7 +18,7 @@ ALLOWED_USER_IDS = set(
 
 def is_allowed(user_id: int) -> bool:
   """Check if a Telegram user ID is on the allowlist."""
-  return user_id is in ALLOWED_USER_IDS
+  return user_id in ALLOWED_USER_IDS
   
 # HANDLER 1 — PLAIN TEXT MESSAGES
 
