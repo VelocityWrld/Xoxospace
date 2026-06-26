@@ -34,7 +34,7 @@ def so_search(query: str, max_results: int = 5) -> list[dict]:
     results = []
     for item in data.get("items", []):
       results.append({
-        "title": item.get("title", "")
+        "title": item.get("title", ""),
         "url": item.get("link", ""),
         "score": item.get("score", 0),
         "answer_count": item.get,("answer_count", 0),
