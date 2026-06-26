@@ -55,7 +55,7 @@ def store_session(session_id: str, query: str, outcome: str, sources: list[str])
   return {"status": "success"}
   
 @mcp.tool() #tool 2 decorator; search_memory
-def search_memory(query: str, collections: list[str], = None, limit: int = 5) -> dict:
+def search_memory(query: str, collections: list[str] = None, limit: int = 5) -> dict:
   """Search across memory collections (sessions, facts, preferences, profile) for relevant context."""
   if collections is None:
     collections = ["sessions", "facts", "preferences", "profile"]
