@@ -1,6 +1,7 @@
 # THE A2A SERVER
 import os
 import server
+import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
