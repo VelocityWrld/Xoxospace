@@ -34,8 +34,8 @@ class SimpleTokenVerifier(TokenVerifier):
   async def verify_token(self, token: str) -> AccessToken | None:
     if token == MICROGIT_API_KEY:
       return AcessToken(
-        token=token
-        client_id="xoxobot"
+        token=token,
+        client_id="xoxobot",
         scope=["*"]
       )
     return None
