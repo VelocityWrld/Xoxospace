@@ -65,7 +65,7 @@ def search_memory(query: str, collections: list[str] = None, limit: int = 5) -> 
   for name in collections:
     col = collection_map.get(name)
     if col is None:
-    continue
+      continue
     found = col.query(query_texts=[query], n_result=limit)
     docs = found.get("documents", [[]])[0]
     metas = found.get("metadatas", [[]])[0]
