@@ -11,6 +11,7 @@ from a2a.server.tasks import TaskUpdater, InMemoryTaskStore
 from a2a.server.request_handlers import DefaultRequestHandler
 from a2a.server.routes import create_agent_caed_routes, create_jsonrpc_routes
 from a2a.types import AgentCard, AgentCapabilities, AgentInterface, AgentSkill, Part
+from a2a.server.routes import create_agent_card_routes, create_jsonrpc_routes
 
 from agent import run_research
 
@@ -18,7 +19,7 @@ load_dotenv()
 
 QWERY_API_KEY = os.getenv("QWERY_API_KEY")
 if not QWERY_API_KEY:
-  raise ValieError("QWERY_API_KEY is not set. Check your .env file.")
+  raise ValueError("QWERY_API_KEY is not set. Check your .env file.")
   
 PUBLIC_URL = os.getenv("QWERY_API_KEY", "http://localhost:8002")
 
