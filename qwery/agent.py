@@ -225,7 +225,7 @@ async def run_research(query: str, depth: str = "deep", max_iterations: int = No
   
 # AGENT DECIDES WHETHER TO ITERATE OR STOP  
   
-def(query: str, findings: list[dict]) -> dict:
+def evaluate_results(query: str, findings: list[dict]) -> dict:
   """Ask Gemini to evaluate whether the current findings are sufficient to answer the query, or whether another iteration is needed with a refined query.
   """
   findings_summary = json.dumps(findings[:10], indent=2)[:3000]
