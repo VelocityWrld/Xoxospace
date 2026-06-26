@@ -157,7 +157,7 @@ def run_selected_sources(source_names: list[str], query: str) -> list[dict]:
     
     result = func(query, max_results = 5)
     
-    if isinstance(result, list) and result and "error" on result[0]:
+    if isinstance(result, list) and result and "error" in result[0]:
       continue
     
     findings.extend(result if isinstance(result, list) else [result])
