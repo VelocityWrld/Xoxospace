@@ -20,7 +20,7 @@ def so_search(query: str, max_results: int = 5) -> list[dict]:
     "order": "desc",
     "pagesize": max_results,
     "filter": "withbody",
-    ,"accepted": "True",
+    "accepted": "True",
       
     }
     response = requests.get(
