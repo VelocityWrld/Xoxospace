@@ -30,7 +30,7 @@ def main() -> None:
   
   WEBHOOK_URL = os.getenv("WEBHOOK_URL")
   PORT = int(os.environ.get("PORT", 8443))
-  print(f"Xoxobot starting webhook on port {}")
+  print(f"Xoxobot starting webhook on port {PORT}")
   app.run_webhook(
     listen="0.0.0.0",
     port=PORT,
