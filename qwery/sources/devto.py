@@ -120,7 +120,7 @@ def fetch_community_imsights(query: str, max_results: int = 5) -> list[dict]:
   Best for: architecture decisions,  tool comparisons, real-world experience reports.
   """
   
-  devto_results = devto_search(query, mac_results)
+  devto_results = devto_search(query, max_results)
   hashnode_results = hashnode_search(query, max_results)
   
   devto_clean = [r for r in devto_results if "error" not in r]
