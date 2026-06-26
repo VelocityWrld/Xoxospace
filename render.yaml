@@ -1,0 +1,88 @@
+services:
+  - type: web
+    name: xoxospace-kontext
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python kontext/server.py
+    envVars:
+      - key: CHROMA_PATH
+        value: ./kontext/kontext_store
+      - key: EMBEDDING_MODEL
+        value: all-MiniLM-L6-v2
+      - key: KONTEXT_API_KEY
+        sync: false
+      - key: PORT
+        generateValue: true
+
+  - type: web
+    name: xoxospace-microgit
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python microgit/server.py
+    envVars:
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_OWNER
+        sync: false
+      - key: GITHUB_REPO
+        sync: false
+      - key: MICROGIT_API_KEY
+        sync: false
+      - key: PORT
+        generateValue: true
+
+  - type: web
+    name: xoxospace-qwery
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python qwery/server.py
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: QWERY_AGENT_MODEL
+        value: gemini-2.5-flash
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: NEWSAPI_ORG_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: MAX_ITERATIONS
+        value: "3"
+      - key: QWERY_API_KEY
+        sync: false
+      - key: QWERY_PUBLIC_URL
+        sync: false
+      - key: PORT
+        generateValue: true
+
+  - type: web
+    name: xoxospace-telegram
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python telegram_bot/bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ALLOWED_TELEGRAM_USER_IDS
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: KONTEXT_SERVER_URL
+        sync: false
+      - key: MICROGIT_SERVER_URL
+        sync: false
+      - key: QWERY_PUBLIC_URL
+        sync: false
+      - key: KONTEXT_API_KEY
+        sync: false
+      - key: MICROGIT_API_KEY
+        sync: false
+      - key: QWERY_API_KEY
+        sync: false
+      - key: PORT
+        generateValue: true

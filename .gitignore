@@ -1,0 +1,9 @@
+.env 
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+kontext/kontext_store/
+*.log
+.DS_Store
