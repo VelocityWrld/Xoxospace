@@ -65,7 +65,7 @@ def github_get_releases(repo_name: str, max_results: int = 3) -> list[dict]:
   except Exception as e:
     return [{"error": f"GitHub releases failed: {type(e).__name__}"}]
     
-def github_search_issues(query: str, repo_name: str, None, max_results: int = 5) -> list[dict]:
+def github_search_issues(query: str, repo_name: str = None, max_results: int = 5) -> list[dict]:
   """Search GitHub issues and PRs.
   Best for: known bugs, error messages, feature requests, checking if a problem is already reported.
   repo_name is optional — searches all public repos if not provided.
