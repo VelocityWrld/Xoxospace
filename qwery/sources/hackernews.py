@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HN_SEARCH_URL = "https://hn.algolia.com/api/v1/search"
-HN_SEARCH_DATE = "https://hn.algolia.com/api/v1/search_by_date"
+HN_SEARCH_DATE_URL = "https://hn.algolia.com/api/v1/search_by_date"
 
 def hn_search(query: str, max_results: int = 10) -> list[dict]:
   """Search Hacker News stories by relevance. Best for: developer sentiment, tool discussions, ecosystem reactions. No API key required.
