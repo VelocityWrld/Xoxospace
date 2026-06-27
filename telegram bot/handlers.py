@@ -93,7 +93,6 @@ async def handle_recent(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     return
   
   try:
-    from xoxobot.agent import kontext_get_recent_sessions
     result = await kontext_get_recent_sessions(limit=5)
     sessions = result.get("sessions", [])
     
