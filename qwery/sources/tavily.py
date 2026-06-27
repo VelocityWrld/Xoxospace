@@ -44,7 +44,7 @@ def tavily_extract(urls: list[str]) -> list[dict]:
       })
     return results
   except Exception as e:
-    return [{"error": str(e)}]
+    return [{"error": f"Tavily request failed: {type(e).__name__}"}]
     
 def tavily_crawl(urls: list[str], max_pages: int = 5) -> list[dict]:
   """Crawl multipage sources identified during extraction. Called when extract reveals a source spans multiple pages (documentation sites, blog series, spec pages).
