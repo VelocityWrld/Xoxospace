@@ -75,9 +75,9 @@ def so_get_answer(question_id: int, answer_id: int = None) -> dict:
     
     if answer_id:
       for item in items:
-        item.get("answer_id") == answer_id:
-    best = item
-      break
+        if item.get("answer_id") == answer_id:
+          best = item
+          break
     
     return {
       "answer_id": best.get("answer_id"),
