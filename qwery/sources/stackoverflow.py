@@ -75,7 +75,7 @@ def so_get_answer(question_id: int, answer_id: int = None) -> dict:
     
     if answer_id:
       for item in items:
-        items.get("answer_id") == answer_id:
+        items.get("answer_id") == answer_id
           best = item
           break
     
@@ -88,5 +88,5 @@ def so_get_answer(question_id: int, answer_id: int = None) -> dict:
     }
     
   except Exception as e:
-    return {"error": f"Stack Overflow answer fetch failed: {type(e).__name__}"}=
+    return {"error": f"Stack Overflow answer fetch failed: {type(e).__name__}"}
   
