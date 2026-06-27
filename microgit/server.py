@@ -142,10 +142,10 @@ def read_upload(filename: str) -> dict:
         "message": ".{} files are not supported yet. Supported: .txt, .md, .pdf, .docx".format(ext)
       }
 
-  return {
-    "status": "success",
-    "filename": filename,
-    "content": content,
+    return {
+      "status": "success",
+      "filename": filename,
+      "content": content,
     }
 
   except GithubException as e:
