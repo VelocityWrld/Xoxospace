@@ -139,9 +139,9 @@ def read_upload(filename: str) -> dict:
       )
         
     return {
-      "status": "error"
-      "message": f"{ext} files are not supported yet. Supported: txt, md, pdf, docx."
-        }
+      "status": "error",
+      "message": ".{} files are not supported yet. Supported: .txt, .md, .pdf, .docx".format(ext)
+    }
         
       return {
         "status": "success"
