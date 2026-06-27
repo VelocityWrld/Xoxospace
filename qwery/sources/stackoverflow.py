@@ -37,7 +37,7 @@ def so_search(query: str, max_results: int = 5) -> list[dict]:
         "title": item.get("title", ""),
         "url": item.get("link", ""),
         "score": item.get("score", 0),
-        "answer_count": item.get,("answer_count", 0),
+        "answer_count": item.get("answer_count", 0),
         "is_answered": item.get("is_answered", False),
         "accepted_answer_id": item.get("accepted_answer_id"),
         "question_id": item.get("question_id"),
