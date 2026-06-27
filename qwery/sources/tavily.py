@@ -29,7 +29,7 @@ def tavily_search(query: str, max_results: int = 5) -> list[dict]:
       })
     return results
   except Exception as e:
-    return [{"error": str(e)}]
+    return [{"error": f"Tavily request failed: {type(e).__name__}"}]
     
 def tavily_extract(urls: list[str]) -> list[dict]:
   """Extract full page content from a list of URLs. Called after tavily_search with the top 3 URLs. Accepts a batch of URLs in one call.
