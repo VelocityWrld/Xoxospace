@@ -127,7 +127,7 @@ def run_tavily_pipeline(query: str) -> list[dict]:
   multipage_urls = []
   for item in extracted:
     content = item.get("content", "=")
-    if len(contact) > 3000 and any(
+    if len(content) > 3000 and any(
       marker in item.get("url","")
       for marker in ["/docs/", "/documentation/", "/guide/", "/blog/"]
     ):
