@@ -107,49 +107,45 @@ def read_file(path: str) -> dict:
     
 @mcp.tool()
 def read_upload(filename: str) -> dict:
-  """Pull a file from /uploads and extract its text content. Supported: .txt,.md, .pdf, .docx. Unsupported: .png, .jpg.mp3 (return error, not silence)."""
+  """Pull a file from /uploads and extract its text content.
+  Supported: .txt, .md, .pdf, .docx
+  Unsupported: .png, .jpg, .mp3 (returns error, not silence)
+    """
   try:
     path = f"uploads/{filename}"
-    file = repo.get_content(path)
-    
+    file = repo.get_contents(path)
+
     if file.size > MAX_FILE_SIZE:
       return {
         "status": "error",
-        "message": f"{filename} is {file.size//1024}KB – exceeds the 1MB limit " f"for in-memory extraction. Split the file or extract locally."
-        
+        "message": "{} is {}KB - exceeds the 1MB limit for in-memory extraction.".format(filename, file.size // 1024)
       }
+
     raw_bytes = base64.b64decode(file.content)
-    
     ext = filename.lower().split(".")[-1]
-    
-    if ext in ("txt", "md"):
-      content = raw_bytes.decode("utf-8")
-      
+
+    if ext in ("txt", "md"): content = raw_bytes.decode("utf-8")
+
     elif ext == "pdf":
-      with pdfplumber.open(BytesI0(raw_bytes)) as pdf:
-        content = "\n".join(
-          page.extract_text() or "" for page in pdf.pages
-        )
-        
+      with pdfplumber.open(BytesIO(raw_bytes)) as pdf:
+      content = "\n".join(page.extract_text() or "" for page in pdf.pages)
+
     elif ext == "docx":
       doc = Document(BytesIO(raw_bytes))
-      content = "\n".join(
-        paragraph.text() or "" for paragraph in doc.paragraphs
-        
-      )
-        
-    return {
-      "status": "error",
-      "message": ".{} files are not supported yet. Supported: .txt, .md, .pdf, .docx".format(ext)
-    }
-        
+      content = "\n".join(paragraph.text for paragraph in doc.paragraphs)
+
+    else:
       return {
-        "status": "success"
-        "filename": filename
-        "content": content
-      }  
-      
-      
+        "status": "error",
+        "message": ".{} files are not supported yet. Supported: .txt, .md, .pdf, .docx".format(ext)
+      }
+
+  return {
+    "status": "success",
+    "filename": filename,
+    "content": content,
+    }
+
   except GithubException as e:
     return {"status": "error", "message": str(e)}
     
