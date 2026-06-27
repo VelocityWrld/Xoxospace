@@ -83,7 +83,7 @@ def search_memory(query: str, collections: list[str] = None, limit: int = 5) -> 
   return {"results": results}
   
 @mcp.tool() #tool 3 decorator; store_fact
-def store_fact(key: str, value: str, tags: list[str] = None, collection: str = "fact") -> dict:
+def store_fact(key: str, value: str, tags: list[str] = None, collection: str = "facts") -> dict:
   """Save or update a key-value entry in facts, preference, or profile."""
   if tags is None:
     tags = []
