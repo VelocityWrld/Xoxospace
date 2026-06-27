@@ -4,7 +4,7 @@ import base64
 from telegram import Update
 from telegram.ext import ContextTypes
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-from xoxobot.agent import run_xoxobot_task
+from xoxobot.agent import run_xoxobot_task, kontext_get_recent_sessions, microgit_list_structure
 from dotenv import load_dotenv
 
 load_dotenv()
