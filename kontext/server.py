@@ -71,7 +71,7 @@ def search_memory(query: str, collections: list[str] = None, limit: int = 5) -> 
     metas = found.get("metadatas", [[]])[0]
     distances = found.get("distances", [[]])[0]
     
-    for doc, meta, dist in zip(doc, metas, distances):
+    for doc, meta, dist in zip(docs, metas, distances):
       results.append({
         "collection": name,
         "content": doc,
