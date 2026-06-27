@@ -19,7 +19,7 @@ def tavily_search(query: str, max_results: int = 5) -> list[dict]:
       max_results=max_results,
       search_depth="advanced",
     )
-    result= []
+    results = []
     for item in response.get("results", ""):
       results.append({
         "title": item.get("title", ""),
