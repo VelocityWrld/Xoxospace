@@ -41,8 +41,8 @@ def so_search(query: str, max_results: int = 5) -> list[dict]:
         "is_answered": item.get("is_answered", False),
         "accepted_answer_id": item.get("accepted_answer_id"),
         "question_id": item.get("question_id"),
-        "tags": items.get("tags", []),
-        "body": items.get("body", "")[:500]
+        "tags": item.get("tags", []),
+        "body": item.get("body", "")[:500]
         
       })
       
