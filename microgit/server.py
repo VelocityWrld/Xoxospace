@@ -128,7 +128,9 @@ def read_upload(filename: str) -> dict:
 
     elif ext == "pdf":
       with pdfplumber.open(BytesIO(raw_bytes)) as pdf:
-      content = "\n".join(page.extract_text() or "" for page in pdf.pages)
+        content = "\n".join(
+          page.extract_text() or "" for page in pdf.pages
+        )
 
     elif ext == "docx":
       doc = Document(BytesIO(raw_bytes))
