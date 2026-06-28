@@ -2,7 +2,7 @@ import os
 import base64
 import uvicorn
 from io import BytesIO
-from github import Github, GithubExeception
+from github import Github, GithubException
 from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
 import pdfplumber
@@ -33,7 +33,7 @@ repo = g.get_repo(f"{GITHUB_OWNER}/{GITHUB_REPO}")
 class SimpleTokenVerifier(TokenVerifier):
   async def verify_token(self, token: str) -> AccessToken | None:
     if token == MICROGIT_API_KEY:
-      return AcessToken(
+      return AccessToken(
         token=token,
         client_id="xoxobot",
         scope=["*"]
@@ -67,7 +67,7 @@ def write_file(path: str, content: str, commit_message: str)-> dict:
   """Create or update a file in the repo. Path must follow naming discipline: folder = topic-based, filename = descriptive subject, no type prefix."""
   try:
     try:
-      existing = repo.get_contents(pathi)
+      existing = repo.get_contents(path)
       repo.update_file(
         path=path,
         message=commit_message,
