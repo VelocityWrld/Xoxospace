@@ -102,7 +102,7 @@ def read_file(path: str) -> dict:
       "content": content,
       "last_updated": file.last_modified,
     }
-  except GithubExeception as e:
+  except GithubException as e:
     return {"status": "error", "message": str(e)}
     
 @mcp.tool()
