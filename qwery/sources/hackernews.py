@@ -35,7 +35,7 @@ def hn_search(query: str, max_results: int = 10) -> list[dict]:
   except Exception as e:
     return [{"error":f"HN search failed: {type(e).__name__}"}]
     
-def hn_search(query: str, max_results: int = 10) -> list[dict]:
+def hn_search_recent(query: str, max_results: int = 10) -> list[dict]:
   """Search Hacker News stories sorted by date(most recent first). Best for: latest releases, breaking news, what shipped this week. No API key required.
   """
   try:
