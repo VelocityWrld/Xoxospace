@@ -115,7 +115,7 @@ def hashnode_search(query: str, max_results: int = 5) -> list[dict]:
     return[{"error": f"Hashnode search failed: {type(e).__name__}"}]
     
     
-def fetch_community_imsights(query: str, max_results: int = 5) -> list[dict]:
+def fetch_community_insights(query: str, max_results: int = 5) -> list[dict]:
   """Fetch developer community insights from Dev.to and Hashnode. Combines results from both platforms into one list.
   Best for: architecture decisions,  tool comparisons, real-world experience reports.
   """
