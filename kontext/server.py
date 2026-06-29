@@ -13,10 +13,10 @@ CHROMA_PATH = os.getenv("CHROMA_PATH", "./kontext/kontext_store")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2") # 11&12 read config from env, second arguments acts as fallback
 
 client = chromadb.PersistentClient(path=CHROMA_PATH) # creates Chroma client that saves data to disk in given path; the entire DB setup in embedded mode
-profile = client.get_or_create_collection("profile", metadata={"hnsw: space": "cosine"})
-preferences = client.get_or_create_collection("preferences", metadata={"hnsw: space": "cosine"})
-facts = client.get_or_create_collection("facts", metadata={"hnsw: space": "cosine"})
-sessions = client.get_or_create_collection("sessions", metadata={"hnsw: space": "cosine"}) #12-15 creates/connects our Chroma collections
+profile = client.get_or_create_collection("profile")
+preferences = client.get_or_create_collection("preferences")
+facts = client.get_or_create_collection("facts")
+sessions = client.get_or_create_collection("sessions") #12-15 creates/connects our Chroma collections
 
 collection_map = {
     "sessions": sessions,
