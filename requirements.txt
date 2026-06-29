@@ -2,7 +2,7 @@ mcp[cli]
 python-telegram-bot
 chromadb
 openai
-google-generativeai
+google-genai
 tavily-python
 PyGithub
 pdfplumber
