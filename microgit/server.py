@@ -44,7 +44,6 @@ mcp = FastMCP(
   "microgit",
   host="0.0.0.0",
   port=int(os.environ.get("PORT", 8001)),
-  token_verifier=SimpleTokenVerifier(),
 )    
 
 @mcp.tool()
