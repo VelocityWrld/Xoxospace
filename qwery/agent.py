@@ -1,7 +1,7 @@
 import os
 import json
 from datetime import datetime, timezone
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 
 from sources.tavily import tavily_search, tavily_extract, tavily_crawl
@@ -21,8 +21,7 @@ if not GOOGLE_API_KEY:
 QWERY_AGENT_MODEL = os.getenv("QWERY_AGENT_MODEL", "gemini-2.5-flash")
 MAX_ITERATIONS = int(os.getenv("MAX_ITERATIONS", 3))
 
-genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel(QWERY_AGENT_MODEL)
+client_gemini = genai.Client(api_key=GOOGLE_API_KEY)
 
 # LOAD QWERY AGENT SYSTEM CONFIG
 def load_qwery_config() -> str:
