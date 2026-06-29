@@ -35,7 +35,6 @@ mcp = FastMCP(
   "kontext",
   host="0.0.0.0",
   port=int(os.environ.get("PORT", 8000)),
-  token_verifier=SimpleTokenVerifier(),
 ) #creates MCP server instance "kontext"
 
 @mcp.tool() #tool 1 decorator; store_session
