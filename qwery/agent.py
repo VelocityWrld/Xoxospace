@@ -86,7 +86,10 @@ Respond with ONLY valid JSON, no other text, in this exact shape:
   "reasoning": "one sentence why these sources"
 }}
 """
-  response = model.generate_content(prompt)
+  response = client_gemini.models.generate_content(
+  model = QWERY_AGENT_MODEL,
+  contents = prompt
+  )
   text = response.text.strip()
   
   if text.startswith("```"):
@@ -253,7 +256,10 @@ Respond with ONLY valid JSON, no other text:
 }}
 """
 
-  response = model.generate_content(prompt)
+  response = client_gemini.models.generate_content(
+  model = QWERY_AGENT_MODEL,
+  contents = prompt
+  )
   text = response.text.strip()
   
   if text.startswith("```"):
@@ -301,6 +307,9 @@ Rules:
 - Cite sources by URL where they directly support a claim
 """
 
-  response = model.generate_content(prompt)
+  response = client_gemini.models.generate_content(
+  model = QWERY_AGENT_MODEL,
+  contents = prompt
+  )
   return response.text.strip()
   
