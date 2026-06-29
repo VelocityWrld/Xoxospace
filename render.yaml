@@ -1,7 +1,8 @@
 services:
   - type: web
-    name: xoxospace-kontext
+    name: kontext
     runtime: python
+    pythonVersion: "3.11.15"
     buildCommand: pip install -r requirements.txt
     startCommand: python kontext/server.py
     envVars:
@@ -15,8 +16,9 @@ services:
         generateValue: true
 
   - type: web
-    name: xoxospace-microgit
+    name: microgit
     runtime: python
+    pythonVersion: "3.11.15"
     buildCommand: pip install -r requirements.txt
     startCommand: python microgit/server.py
     envVars:
@@ -32,8 +34,9 @@ services:
         generateValue: true
 
   - type: web
-    name: xoxospace-qwery
+    name: qwery
     runtime: python
+    pythonVersion: "3.11.15"
     buildCommand: pip install -r requirements.txt
     startCommand: python qwery/server.py
     envVars:
@@ -59,6 +62,7 @@ services:
   - type: web
     name: xoxospace-telegram
     runtime: python
+    pythonVersion: "3.11.15"
     buildCommand: pip install -r requirements.txt
     startCommand: python telegram_bot/bot.py
     envVars:
