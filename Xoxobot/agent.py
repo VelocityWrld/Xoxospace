@@ -219,7 +219,7 @@ TOOL_SCHEMAS = [
         "content": {"type": "string"},
         "commit_message": {"type": "string"},
       },
-      "required": ["path", "content", "commit_message"],,
+      "required": ["path", "content", "commit_message"],
     },
   },
   {
