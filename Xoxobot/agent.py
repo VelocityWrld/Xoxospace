@@ -1,7 +1,7 @@
 import os
 import json
 from datetime import datetime, timezone
-from openai import OpenAI
+from openai import AsyncOpenAI
 from mcp import ClientSession
 from mcp.client.streamable_http import streamablehttp_client
 import httpx
