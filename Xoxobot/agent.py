@@ -349,7 +349,7 @@ async def run_xoxobot_task(query: str, image_base64: str = None) -> str:
           ]
           if not recent_user_messages:
             result = {
-              "status": "error"
+              "status": "error",
               "message": "Write blocked: no direct user instruction found in this session."
             }
           else:
