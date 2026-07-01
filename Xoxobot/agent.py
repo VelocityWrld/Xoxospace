@@ -112,7 +112,7 @@ async def call_qwery_engine(query: str) -> dict:
   
   try:
     async with httpx.AsyncClient(headers=headers) as httpx_client:
-      reslover = A2ACardResolver(httpx_client=httpx_client, base_url=QWERY_URL)
+      resolver = A2ACardResolver(httpx_client=httpx_client, base_url=QWERY_URL)
       agent_card = await resolver.get_agent_card()
       
       config = ClientConfig(streaming=True)
