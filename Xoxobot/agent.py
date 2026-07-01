@@ -25,7 +25,8 @@ client = AsyncOpenAI(api_key=OPENAI_API_KEY)
 
 def load_system_config() -> str:
   """Load Xoxobot's operating instruction from system_config.md"""
-  config_path = os.path.join(os.path.dirname(__file__), "system_config.md") with open(config_path, "r", encoding="utf-8") as f:
+  config_path = os.path.join(os.path.dirname(__file__), "system_config.md") 
+  with open(config_path, "r", encoding="utf-8") as f:
     return f.read()
     
 SYSTEM_CONFIG = load_system_config()
