@@ -86,7 +86,7 @@ async def microgit_list_structure() -> dict:
  
 async def microgit_write_file(path: str, content: str, commit_message: str) -> dict:
   """Write or update a file in MicroGit."""
-    args = {"path": path, "content": content, "commit_message": commit_message}
+  args = {"path": path, "content": content, "commit_message": commit_message}
   return await call_mcp_tool(MICROGIT_URL, MICROGIT_API_KEY, "write_file", args)
     
 async def microgit_create_folder(path: str, description: str) -> dict:
