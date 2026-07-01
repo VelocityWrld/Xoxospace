@@ -91,7 +91,7 @@ async def microgit_write_file(path: str, content: str, commit_message: str) -> d
     
 async def microgit_create_folder(path: str, description: str) -> dict:
   """Create a new topic folder in MicroGit."""
-    args = {"path": path, "description": description}
+  args = {"path": path, "description": description}
   return await call_mcp_tool(MICROGIT_URL, MICROGIT_API_KEY, "create_folder", args) 
     
 async def microgit_read_upload(filename: str) -> dict:
