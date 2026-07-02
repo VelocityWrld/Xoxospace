@@ -45,7 +45,7 @@ if not MICROGIT_API_KEY:
 if not QWERY_API_KEY:
   raise ValueError("QWERY_API_KEY is not set. Check your .env file.")
 
-
+# FUNCTION TO CALL MCP TOOL
 
 async def call_mcp_tool(server_url: str, api_key: str, tool_name: str, arguments: dict) -> dict:
   """Connect to an MCP server, call one tool, return the result, disconnect."""
@@ -59,8 +59,8 @@ async def call_mcp_tool(server_url: str, api_key: str, tool_name: str, arguments
 
         if result.content and len(result.content) > 0:
           content_text = result.content[0].text
-                    return json.loads(content_text)
-          return {"status": "error", "message": "Empty response from tool."}
+          return json.loads(content_text)
+        return {"status": "error", "message": "Empty response from tool."}
 
   except Exception as e:
     return {"status": "error", "message": "MCP call failed: {}".format(type(e).__name__)}
