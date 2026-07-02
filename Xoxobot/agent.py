@@ -96,7 +96,7 @@ async def microgit_search_files(query: str) -> dict:
   """Search MicroGit's repo content by keyword."""
   return await call_mcp_tool(MICROGIT_URL, MICROGIT_API_KEY, "search_files", {"query": query})
     
-async def microgit_read_file(path: str) -> dict:
+async def microgit_read_file(path: str, query: str) -> dict:
   """Read a file from MicroGit."""
   return await call_mcp_tool(MICROGIT_URL, MICROGIT_API_KEY, "read_file", {"query": query})
     
