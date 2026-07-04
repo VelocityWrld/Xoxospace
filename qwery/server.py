@@ -30,7 +30,7 @@ AGENT_CARD = AgentCard(
   ),
   supported_interfaces=[
     AgentInterface(
-      protocol_bindings="JSONRPC",
+      protocol_binding="JSONRPC",
       url=f"{PUBLIC_URL}/api/v1/jsonrpc/",
     ),
   ],
