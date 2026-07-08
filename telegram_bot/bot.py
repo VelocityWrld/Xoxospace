@@ -25,8 +25,8 @@ def main() -> None:
   app.add_handler(CommandHandler("start", handle_start))
   app.add_handler(CommandHandler("recent", handle_recent))
   app.add_handler(CommandHandler("structure", handle_structure))
-  app.add_handler(CommandHandler(filters.PHOTO, handle_photo))
-  app.add_handler(CommandHandler(filters.TEXT, ~filters.COMMAND, handle_message))
+  app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+  app.add_handler(MessageHandler(filters.TEXT, ~filters.COMMAND, handle_message))
   
   WEBHOOK_URL = os.getenv("WEBHOOK_URL")
   PORT = int(os.environ.get("PORT", 8443))
