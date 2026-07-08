@@ -57,7 +57,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
   try:
     if update.message.photo:
       file_id = update.message.photo[-1].file_id
-    elif update.message.docume t:
+    elif update.message.document:
       file_id = update.message.document.file_id
     else:
       await update.message.reply("No image found.") 
