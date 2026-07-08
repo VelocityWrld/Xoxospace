@@ -1,5 +1,5 @@
 mcp[cli]
-python-telegram-bot
+python-telegram-bot[webhooks]
 chromadb
 openai
 google-genai
