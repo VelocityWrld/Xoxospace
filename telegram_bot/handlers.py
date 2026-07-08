@@ -63,7 +63,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
       await update.message.reply("No image found.") 
       return
     
-    file = await context.bot.get_file(photo.file_id)
+    file = await context.bot.get_file(file_id)
     file_bytes = await file.download_as_bytearray()
     image_base64 = base64.b64encode(file_bytes).decode("utf-8")
     
