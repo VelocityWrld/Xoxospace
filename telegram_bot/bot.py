@@ -34,6 +34,7 @@ def main() -> None:
   app.run_webhook(
     listen="0.0.0.0",
     port=PORT,
+    url_path="telegram",
     webhook_url=WEBHOOK_URL,
   )
   
