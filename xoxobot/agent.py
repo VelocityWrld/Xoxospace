@@ -140,7 +140,7 @@ async def call_qwery_engine(query: str) -> dict:
       resolver = A2ACardResolver(httpx_client=httpx_client, base_url=QWERY_URL)
       agent_card = await resolver.get_agent_card()
       
-      config = ClientConfig(streaming=True)
+      config = ClientConfig(streaming=True,httpx_client=httpx_client)
       client = await create_client(agent=agent_card, client_config=config)
       
       message = new_text_message(query, role=Role.ROLE_USER)
