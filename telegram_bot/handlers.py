@@ -39,11 +39,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     response = await run_xoxobot_task(query=query)
     await update.message.reply_text(response)
   except Exception as e:
-    print(f"ERROR in handle_message: {type(e).__name__}: {str(e)}")
-    await update.message.reply_text(
-      f"Something went wrong: {type(e).__name__}. Please try again."
-    )
-    
+    if hasattr(e, 'exceptions'):
+      inner = e.exceptions[0]
+      print(f"ERROR in call_mcp_tool: {type(inner).__name__}: {str(inner)}")
+      return {"status": "error", "message": f"MCP call failed: {type(inner).__name__}: {str(inner)}"}
+    print(f"ERROR in call_mcp_tool: {type(e).__name__}: {str(e)}")
+    return {"status": "error", "message": f"MCP call failed: {type(e).__name__}: {str(e)}"}
+
 # HANDLER 2 — PHOTO AND IMAGE MESSAGES
 
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -77,10 +79,12 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     await update.message.reply_text(response)
     
   except Exception as e:
-    print(f"ERROR in handle_message: {type(e).__name__}: {str(e)}")
-    await update.message.reply_text(
-      f"Image processing failed: {type(e).__name__}. Please try again."
-    )
+    if hasattr(e, 'exceptions'):
+      inner = e.exceptions[0]
+      print(f"ERROR in call_mcp_tool: {type(inner).__name__}: {str(inner)}")
+      return {"status": "error", "message": f"MCP call failed: {type(inner).__name__}: {str(inner)}"}
+    print(f"ERROR in call_mcp_tool: {type(e).__name__}: {str(e)}")
+    return {"status": "error", "message": f"MCP call failed: {type(e).__name__}: {str(e)}"}
     
 # HANDLER 3 — SLASH COMMANDS
 
