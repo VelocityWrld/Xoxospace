@@ -136,7 +136,7 @@ async def call_qwery_engine(query: str) -> dict:
   headers = {"Authorization": f"Bearer {QWERY_API_KEY}"}
   
   try:
-    async with httpx.AsyncClient(headers=headers) as httpx_client:
+    async with httpx.AsyncClient(headers=headers, timeout=120.0) as httpx_client:
       resolver = A2ACardResolver(httpx_client=httpx_client, base_url=QWERY_URL)
       agent_card = await resolver.get_agent_card()
       
