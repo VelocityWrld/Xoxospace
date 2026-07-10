@@ -39,6 +39,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     response = await run_xoxobot_task(query=query)
     await update.message.reply_text(response)
   except Exception as e:
+    print(f"ERROR in handle_message: {type(e).__name__}: {str(e)}")
     await update.message.reply_text(
       f"Something went wrong: {type(e).__name__}. Please try again."
     )
@@ -76,6 +77,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     await update.message.reply_text(response)
     
   except Exception as e:
+    print(f"ERROR in handle_message: {type(e).__name__}: {str(e)}")
     await update.message.reply_text(
       f"Image processing failed: {type(e).__name__}. Please try again."
     )
