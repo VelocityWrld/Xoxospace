@@ -63,7 +63,7 @@ class QweryExecutor(AgentExecutor):
   """
   
   async def execute(self, context: RequestContext, event_queue: EventQueue) -> None:
-    task_updater = TaskUpdater(event_queue, context.task_id, context.context_id)
+    task_updater = TaskUpdater(event_queue, task.id, task.context_id)
     
     query = context.get_user_input()
     if not query or not query.strip():
