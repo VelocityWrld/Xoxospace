@@ -21,7 +21,7 @@ QWERY_API_KEY = os.getenv("QWERY_API_KEY")
 if not QWERY_API_KEY:
   raise ValueError("QWERY_API_KEY is not set. Check your .env file.")
   
-PUBLIC_URL = os.getenv("QWERY_API_KEY", "http://localhost:8002")
+PUBLIC_URL = os.getenv("QWERY_PUBLIC_URL", "http://localhost:8002")
 
 AGENT_CARD = AgentCard(
   name="Qwery Engine",
