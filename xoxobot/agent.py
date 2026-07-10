@@ -237,6 +237,7 @@ TOOL_SCHEMAS = [
       "name": "microgit_write_file",
       "description": "Write or update a file in MicroGit. Only call after the MicroGit test passes (the content is worth keeping permanently). Folder must be topic-based, filename descriptive.",
       "parameters": {
+        "type": "object",
         "path": {"type": "string"},
         "content": {"type": "string"},
         "commit_message": {"type": "string"},
