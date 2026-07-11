@@ -68,12 +68,9 @@ async def call_mcp_tool(server_url: str, api_key: str, tool_name: str, arguments
         return {"status": "error", "message": "Empty response from tool."}
 
   except Exception as e:
-    if hasattr(e, 'exceptions'):
-      inner = e.exceptions[0]
-      print(f"ERROR in call_mcp_tool: {type(inner).__name__}: {str(inner)}")
-      return {"status": "error", "message": f"MCP call failed: {type(inner).__name__}: {str(inner)}"}
-    print(f"ERROR in call_mcp_tool: {type(e).__name__}: {str(e)}")
-    return {"status": "error", "message": f"MCP call failed: {type(e).__name__}: {str(e)}"}
+    real_error = unwrap_exception(e)
+    print(f"ERROR in call_mcp_tool: {type(real_error).__name__}: {str(real_error)}")
+    return {"status": "error", "message": f"MCP call failed: {type(real_error).__name__}: {str(real_error)}"}
 
 # KONTEXT AND MICROGIT WRAPPER FUNCTIONS
 
