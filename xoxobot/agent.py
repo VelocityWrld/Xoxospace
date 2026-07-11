@@ -28,6 +28,9 @@ def load_system_config() -> str:
   config_path = os.path.join(os.path.dirname(__file__), "system_config.md") 
   with open(config_path, "r", encoding="utf-8") as f:
     return f.read()
+
+def unwrap_exception(e):
+  while hasattr(e, 'exception') and len()
     
 SYSTEM_CONFIG = load_system_config()
 
