@@ -62,6 +62,9 @@ async def call_mcp_tool(server_url: str, api_key: str, tool_name: str, arguments
         await session.initialize()
         result = await session.call_tool(tool_name, arguments=arguments)
 
+        if result.data is not None:
+          return result.data
+
         if result.content and len(result.content) > 0:
           content_text = result.content[0].text
           return json.loads(content_text)
