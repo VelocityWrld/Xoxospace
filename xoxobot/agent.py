@@ -27,7 +27,7 @@ def load_system_config() -> str:
   """Load Xoxobot's operating instruction from system_config.md"""
   config_path = os.path.join(os.path.dirname(__file__), "system_config.md") 
   with open(config_path, "r", encoding="utf-8") as f:
-  return f.read()
+   return f.read()
 
 def unwrap_exception(e):
   while hasattr(e, 'exceptions') and len(e.exceptions) > 0:
